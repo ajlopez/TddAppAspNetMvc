@@ -10,20 +10,20 @@
     using MyLibrary.Web.Models;
 
     [TestClass]
-    public class GenreControllerTests
+    public class SubjectControllerTests
     {
         [TestMethod]
-        public void GetGenres()
+        public void GetSubjects()
         {
-            IList<Genre> genres = new List<Genre>()
+            IList<Subject> genres = new List<Subject>()
             {
-                new Genre() { Name = "Mathematics" },
-                new Genre() { Name = "Physics" },
-                new Genre() { Name = "Biology" },
-                new Genre() { Name = "Literature" }
+                new Subject() { Name = "Mathematics" },
+                new Subject() { Name = "Physics" },
+                new Subject() { Name = "Biology" },
+                new Subject() { Name = "Literature" }
             };
 
-            GenreController controller = new GenreController(genres);
+            SubjectController controller = new SubjectController(genres);
 
             ActionResult result = controller.Index();
 
@@ -32,7 +32,7 @@
 
             ViewResult viewResult = (ViewResult)result;
 
-            Assert.IsInstanceOfType(viewResult.ViewData.Model, typeof(IList<Genre>));
+            Assert.IsInstanceOfType(viewResult.ViewData.Model, typeof(IList<Subject>));
             Assert.AreSame(genres, viewResult.ViewData.Model);
         }
     }

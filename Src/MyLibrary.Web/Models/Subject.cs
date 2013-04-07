@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Web;
 
-    public class Genre
+    public class Subject
     {
         public string Name { get; set; }
     }

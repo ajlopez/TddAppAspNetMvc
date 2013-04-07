@@ -7,15 +7,15 @@
     using System.Web.Mvc;
     using MyLibrary.Web.Models;
 
-    public class GenreController : Controller
+    public class SubjectController : Controller
     {
-        private IList<Genre> genres;
+        private IEnumerable<Subject> genres;
 
-        public GenreController()
+        public SubjectController()
         {
         }
 
-        public GenreController(IList<Genre> genres)
+        public SubjectController(IEnumerable<Subject> genres)
         {
             this.genres = genres;
         }
