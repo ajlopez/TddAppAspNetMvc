@@ -9,13 +9,13 @@
 
     public class SubjectController : Controller
     {
-        private IEnumerable<Subject> subjects;
+        private IList<Subject> subjects;
 
         public SubjectController()
         {
         }
 
-        public SubjectController(IEnumerable<Subject> subjects)
+        public SubjectController(IList<Subject> subjects)
         {
             this.subjects = subjects;
         }
@@ -29,6 +29,20 @@
         {
             var model = this.subjects.Where(s => s.Id == id).FirstOrDefault();
             return View(model); 
+        }
+
+        public ActionResult Create(Subject subject)
+        {
+            subject.Id = this.subjects.Max(s => s.Id) + 1;
+            subjects.Add(subject);
+            return RedirectToAction("Details", new { id = subject.Id });
+        }
+        
+        public ActionResult Update(int id, Subject subject)
+        {
+            Subject toupdate = this.subjects.Where(s => s.Id == id).Single();
+            toupdate.Name = subject.Name;
+            return RedirectToAction("Details", new { id = id });
         }
     }
 }

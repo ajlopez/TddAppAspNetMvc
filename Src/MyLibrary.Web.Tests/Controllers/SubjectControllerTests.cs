@@ -15,7 +15,7 @@
         [TestMethod]
         public void GetSubjectsInIndex()
         {
-            IEnumerable<Subject> subjects = GetSubjects();
+            IList<Subject> subjects = GetSubjects();
 
             SubjectController controller = new SubjectController(subjects);
 
@@ -33,7 +33,7 @@
         [TestMethod]
         public void GetSubjectForDetail()
         {
-            IEnumerable<Subject> subjects = GetSubjects();
+            IList<Subject> subjects = GetSubjects();
             SubjectController controller = new SubjectController(subjects);
             ActionResult result = controller.Details(1);
             Assert.IsNotNull(result);
@@ -45,7 +45,46 @@
             Assert.AreEqual("Mathematics", model.Name);
         }
 
-        private static IEnumerable<Subject> GetSubjects()
+        [TestMethod]
+        public void AddSubject()
+        {
+            IList<Subject> subjects = GetSubjects();
+            Subject subject = new Subject() { Name = "Chemistry" };
+            SubjectController controller = new SubjectController(subjects);
+            ActionResult result = controller.Create(subject);
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(RedirectToRouteResult));
+            RedirectToRouteResult redirect = (RedirectToRouteResult)result;
+            Assert.IsTrue(string.IsNullOrEmpty(redirect.RouteName));
+            Assert.IsTrue(redirect.RouteValues.ContainsKey("id"));
+            Assert.AreEqual(subject.Id, redirect.RouteValues["id"]);
+            Assert.IsTrue(redirect.RouteValues.ContainsKey("action"));
+            Assert.AreEqual("Details", redirect.RouteValues["action"]); Assert.IsTrue(subjects.Any(s => s.Name == "Chemistry"));
+            Assert.AreNotEqual(0, subject.Id);
+            Assert.AreEqual(1, subjects.Count(s => s.Id == subject.Id));
+        }
+
+        [TestMethod]
+        public void UpdateSubject()
+        {
+            IList<Subject> subjects = GetSubjects();
+            Subject literature = subjects.Where(s => s.Name == "Literature").FirstOrDefault();
+            Subject subject = new Subject() { Name = "SciFi" };
+            SubjectController controller = new SubjectController(subjects);
+            ActionResult result = controller.Update(literature.Id, subject);
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(RedirectToRouteResult));
+            RedirectToRouteResult redirect = (RedirectToRouteResult)result;
+            Assert.IsTrue(string.IsNullOrEmpty(redirect.RouteName));
+            Assert.IsTrue(redirect.RouteValues.ContainsKey("id"));
+            Assert.AreEqual(literature.Id, redirect.RouteValues["id"]);
+            Assert.IsTrue(redirect.RouteValues.ContainsKey("action"));
+            Assert.AreEqual("Details", redirect.RouteValues["action"]);
+            Assert.IsTrue(subjects.Any(s => s.Name == "SciFi"));
+            Assert.AreEqual(literature.Id, subjects.Where(s => s.Name == "SciFi").Single().Id);
+        }
+
+        private static IList<Subject> GetSubjects()
         {
             return new List<Subject>()
             {
