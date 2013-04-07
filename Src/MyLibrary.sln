@@ -1,7 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLibrary.Web", "MyLibrary.Web\MyLibrary.Web.csproj", "{08C22987-511F-43A9-96EC-F1D872617BBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLibrary.Web.Tests", "MyLibrary.Web.Tests\MyLibrary.Web.Tests.csproj", "{533E195A-30CF-4D93-8493-703A3D3FF551}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08C22987-511F-43A9-96EC-F1D872617BBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08C22987-511F-43A9-96EC-F1D872617BBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08C22987-511F-43A9-96EC-F1D872617BBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08C22987-511F-43A9-96EC-F1D872617BBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{533E195A-30CF-4D93-8493-703A3D3FF551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{533E195A-30CF-4D93-8493-703A3D3FF551}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{533E195A-30CF-4D93-8493-703A3D3FF551}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{533E195A-30CF-4D93-8493-703A3D3FF551}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

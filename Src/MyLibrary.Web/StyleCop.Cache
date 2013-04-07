@@ -1,0 +1,60 @@
+<stylecopresultscache>
+  <version>10</version>
+  <sourcecode name="Genre.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/07/2013 06:48:35</timestamp>
+      <milliseconds>814</milliseconds>
+    </settings>
+    <timestamp>04/07/2013 06:48:05</timestamp>
+    <milliseconds>205</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="AssemblyInfo.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/07/2013 06:48:35</timestamp>
+      <milliseconds>814</milliseconds>
+    </settings>
+    <timestamp>04/07/2013 06:43:40</timestamp>
+    <milliseconds>843</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="FilterConfig.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/07/2013 06:48:35</timestamp>
+      <milliseconds>814</milliseconds>
+    </settings>
+    <timestamp>04/07/2013 06:48:48</timestamp>
+    <milliseconds>554</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Global.asax.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/07/2013 06:48:35</timestamp>
+      <milliseconds>814</milliseconds>
+    </settings>
+    <timestamp>04/07/2013 06:49:19</timestamp>
+    <milliseconds>344</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="RouteConfig.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/07/2013 06:48:35</timestamp>
+      <milliseconds>814</milliseconds>
+    </settings>
+    <timestamp>04/07/2013 06:49:37</timestamp>
+    <milliseconds>377</milliseconds>
+    <violations />
+  </sourcecode>
+  <project key="-144669864">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
+  <sourcecode name="GenreController.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/07/2013 06:48:35</timestamp>
+      <milliseconds>814</milliseconds>
+    </settings>
+    <timestamp>04/07/2013 06:49:48</timestamp>
+    <milliseconds>806</milliseconds>
+    <violations />
+  </sourcecode>
+</stylecopresultscache>
