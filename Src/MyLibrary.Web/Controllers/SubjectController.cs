@@ -34,7 +34,7 @@
         public ActionResult Create(Subject subject)
         {
             subject.Id = this.subjects.Max(s => s.Id) + 1;
-            subjects.Add(subject);
+            this.subjects.Add(subject);
             return RedirectToAction("Details", new { id = subject.Id });
         }
         

@@ -45,9 +45,6 @@
     <milliseconds>377</milliseconds>
     <violations />
   </sourcecode>
-  <project key="-144669864">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="GenreController.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/07/2013 06:48:35</timestamp>
@@ -56,5 +53,41 @@
     <timestamp>04/07/2013 06:49:48</timestamp>
     <milliseconds>806</milliseconds>
     <violations />
+  </sourcecode>
+  <sourcecode name="HomeController.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/07/2013 06:48:35</timestamp>
+      <milliseconds>814</milliseconds>
+    </settings>
+    <timestamp>04/07/2013 07:14:59</timestamp>
+    <milliseconds>577</milliseconds>
+    <violations />
+  </sourcecode>
+  <project key="-144669864">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
+  <sourcecode name="Subject.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/07/2013 06:48:35</timestamp>
+      <milliseconds>814</milliseconds>
+    </settings>
+    <timestamp>04/07/2013 06:56:39</timestamp>
+    <milliseconds>252</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="SubjectController.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/07/2013 06:48:35</timestamp>
+      <milliseconds>814</milliseconds>
+    </settings>
+    <timestamp>04/07/2013 07:09:52</timestamp>
+    <milliseconds>553</milliseconds>
+    <violations>
+      <violation namespace="Microsoft.StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
+        <context>The call to subjects must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
+        <line>37</line>
+        <warning>False</warning>
+      </violation>
+    </violations>
   </sourcecode>
 </stylecopresultscache>
