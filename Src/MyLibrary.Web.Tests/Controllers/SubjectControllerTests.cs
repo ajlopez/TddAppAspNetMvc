@@ -59,7 +59,8 @@
             Assert.IsTrue(redirect.RouteValues.ContainsKey("id"));
             Assert.AreEqual(subject.Id, redirect.RouteValues["id"]);
             Assert.IsTrue(redirect.RouteValues.ContainsKey("action"));
-            Assert.AreEqual("Details", redirect.RouteValues["action"]); Assert.IsTrue(subjects.Any(s => s.Name == "Chemistry"));
+            Assert.AreEqual("Details", redirect.RouteValues["action"]);
+            Assert.IsTrue(subjects.Any(s => s.Name == "Chemistry"));
             Assert.AreNotEqual(0, subject.Id);
             Assert.AreEqual(1, subjects.Count(s => s.Id == subject.Id));
         }
