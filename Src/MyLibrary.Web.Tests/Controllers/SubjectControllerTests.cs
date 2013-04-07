@@ -46,7 +46,22 @@
         }
 
         [TestMethod]
-        public void AddSubject()
+        public void GetSubjectForEdit()
+        {
+            IList<Subject> subjects = GetSubjects();
+            SubjectController controller = new SubjectController(subjects);
+            ActionResult result = controller.Edit(1);
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(ViewResult));
+            ViewResult viewResult = (ViewResult)result;
+            Assert.IsInstanceOfType(viewResult.ViewData.Model, typeof(Subject));
+            Subject model = (Subject)viewResult.ViewData.Model;
+            Assert.AreEqual(1, model.Id);
+            Assert.AreEqual("Mathematics", model.Name);
+        }
+
+        [TestMethod]
+        public void CreateSubject()
         {
             IList<Subject> subjects = GetSubjects();
             Subject subject = new Subject() { Name = "Chemistry" };
@@ -72,7 +87,7 @@
             Subject literature = subjects.Where(s => s.Name == "Literature").FirstOrDefault();
             Subject subject = new Subject() { Name = "SciFi" };
             SubjectController controller = new SubjectController(subjects);
-            ActionResult result = controller.Update(literature.Id, subject);
+            ActionResult result = controller.Edit(literature.Id, subject);
             Assert.IsNotNull(result);
             Assert.IsInstanceOfType(result, typeof(RedirectToRouteResult));
             RedirectToRouteResult redirect = (RedirectToRouteResult)result;
@@ -83,6 +98,20 @@
             Assert.AreEqual("Details", redirect.RouteValues["action"]);
             Assert.IsTrue(subjects.Any(s => s.Name == "SciFi"));
             Assert.AreEqual(literature.Id, subjects.Where(s => s.Name == "SciFi").Single().Id);
+        }
+
+        [TestMethod]
+        public void GetCreate()
+        {
+            SubjectController controller = new SubjectController();
+
+            ActionResult result = controller.Create();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(ViewResult));
+
+            ViewResult viewResult = (ViewResult)result;
+            Assert.IsNull(viewResult.Model);
         }
 
         private static IList<Subject> GetSubjects()

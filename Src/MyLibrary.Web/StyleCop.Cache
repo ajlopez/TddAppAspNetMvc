@@ -72,13 +72,22 @@
     <milliseconds>252</milliseconds>
     <violations />
   </sourcecode>
+  <sourcecode name="Domain.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/07/2013 06:48:35</timestamp>
+      <milliseconds>814</milliseconds>
+    </settings>
+    <timestamp>04/07/2013 07:21:44</timestamp>
+    <milliseconds>377</milliseconds>
+    <violations />
+  </sourcecode>
   <sourcecode name="SubjectController.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/07/2013 06:48:35</timestamp>
       <milliseconds>814</milliseconds>
     </settings>
-    <timestamp>04/07/2013 07:15:14</timestamp>
-    <milliseconds>299</milliseconds>
+    <timestamp>04/07/2013 07:34:08</timestamp>
+    <milliseconds>179</milliseconds>
     <violations />
   </sourcecode>
   <project key="-144669864">

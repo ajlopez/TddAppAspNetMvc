@@ -12,6 +12,7 @@
         private IList<Subject> subjects;
 
         public SubjectController()
+            : this(Domain.Instance.Subjects)
         {
         }
 
@@ -31,6 +32,18 @@
             return View(model); 
         }
 
+        public ActionResult Edit(int id)
+        {
+            var model = this.subjects.Where(s => s.Id == id).FirstOrDefault();
+            return View(model);
+        }
+
+        public ActionResult Create()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
         public ActionResult Create(Subject subject)
         {
             subject.Id = this.subjects.Max(s => s.Id) + 1;
@@ -38,7 +51,8 @@
             return RedirectToAction("Details", new { id = subject.Id });
         }
         
-        public ActionResult Update(int id, Subject subject)
+        [HttpPost]
+        public ActionResult Edit(int id, Subject subject)
         {
             Subject toupdate = this.subjects.Where(s => s.Id == id).Single();
             toupdate.Name = subject.Name;
