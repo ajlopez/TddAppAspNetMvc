@@ -35,5 +35,26 @@
             Assert.IsInstanceOfType(viewResult.ViewData.Model, typeof(IList<Subject>));
             Assert.AreSame(genres, viewResult.ViewData.Model);
         }
+
+        [TestMethod]
+        public void GetSubjectForDetail()
+        {
+            IEnumerable<Subject> subjects = new List<Subject>()
+            {
+                new Subject() { Id = 1, Name = "Mathematics" },
+                new Subject() { Id = 2, Name = "Physics" },
+                new Subject() { Id = 3, Name = "Biology" },
+                new Subject() { Id = 4, Name = "Literature" }
+            };
+            SubjectController controller = new SubjectController(subjects);
+            ActionResult result = controller.Details(1);
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(ViewResult));
+            ViewResult viewResult = (ViewResult)result;
+            Assert.IsInstanceOfType(viewResult.ViewData.Model, typeof(Subject));
+            Subject model = (Subject)viewResult.ViewData.Model;
+            Assert.AreEqual(1, model.Id);
+            Assert.AreEqual("Mathematics", model.Name);
+        }
     }
 }
