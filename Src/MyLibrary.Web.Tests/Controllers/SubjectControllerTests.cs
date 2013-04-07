@@ -13,17 +13,11 @@
     public class SubjectControllerTests
     {
         [TestMethod]
-        public void GetSubjects()
+        public void GetSubjectsInIndex()
         {
-            IList<Subject> genres = new List<Subject>()
-            {
-                new Subject() { Name = "Mathematics" },
-                new Subject() { Name = "Physics" },
-                new Subject() { Name = "Biology" },
-                new Subject() { Name = "Literature" }
-            };
+            IEnumerable<Subject> subjects = GetSubjects();
 
-            SubjectController controller = new SubjectController(genres);
+            SubjectController controller = new SubjectController(subjects);
 
             ActionResult result = controller.Index();
 
@@ -33,19 +27,13 @@
             ViewResult viewResult = (ViewResult)result;
 
             Assert.IsInstanceOfType(viewResult.ViewData.Model, typeof(IList<Subject>));
-            Assert.AreSame(genres, viewResult.ViewData.Model);
+            Assert.AreSame(subjects, viewResult.ViewData.Model);
         }
 
         [TestMethod]
         public void GetSubjectForDetail()
         {
-            IEnumerable<Subject> subjects = new List<Subject>()
-            {
-                new Subject() { Id = 1, Name = "Mathematics" },
-                new Subject() { Id = 2, Name = "Physics" },
-                new Subject() { Id = 3, Name = "Biology" },
-                new Subject() { Id = 4, Name = "Literature" }
-            };
+            IEnumerable<Subject> subjects = GetSubjects();
             SubjectController controller = new SubjectController(subjects);
             ActionResult result = controller.Details(1);
             Assert.IsNotNull(result);
@@ -55,6 +43,17 @@
             Subject model = (Subject)viewResult.ViewData.Model;
             Assert.AreEqual(1, model.Id);
             Assert.AreEqual("Mathematics", model.Name);
+        }
+
+        private static IEnumerable<Subject> GetSubjects()
+        {
+            return new List<Subject>()
+            {
+                new Subject() { Id = 1, Name = "Mathematics" },
+                new Subject() { Id = 2, Name = "Physics" },
+                new Subject() { Id = 3, Name = "Biology" },
+                new Subject() { Id = 4, Name = "Literature" }
+            };
         }
     }
 }
